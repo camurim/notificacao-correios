@@ -1,0 +1,6 @@
+wheel
+requests
+icecream 
+rich
+plyer
+playsound
