@@ -18,5 +18,5 @@ DEBUGMODE=1 ./main.py -c NM000000000BR
 #### Executando em um cronjob
 
 ```
-*/5 * * * * DISPLAY=:0 DEBUGMODE=1 /home/user/src/notificacao-correios/main.py -c NM083035098BR -l
+*/5 * * * * DISPLAY=:0 DEBUGMODE=1 /home/user/src/notificacao-correios/main.py -c NM000000000BR -l
 ```
