@@ -17,6 +17,10 @@ DEBUGMODE=1 ./main.py -c NM000000000BR
 
 #### Executando em um cronjob
 
+```bash
+crontab -e
+```
+
 ```
 */5 * * * * DISPLAY=:0 DEBUGMODE=1 /home/user/src/notificacao-correios/main.py -c NM000000000BR -l
 ```
