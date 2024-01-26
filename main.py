@@ -86,7 +86,7 @@ if __name__ == "__main__":
     console.clear()
 
     cont = 0
-    while response.status_code != 200 and cont <= 3:
+    while response.status_code != 200 and cont <= 10:
         if DEBUGMODE:
             log(
                 f"{str(response.text.encode('utf8'))} - Tentando novamente!",
@@ -94,7 +94,7 @@ if __name__ == "__main__":
             )
 
         response = requests.request("GET", url, headers={}, data={})
-        time.sleep(10)
+        time.sleep(20)
         cont += 1
 
     if response.status_code != 200:
