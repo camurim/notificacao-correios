@@ -86,7 +86,7 @@ if __name__ == "__main__":
     console.clear()
 
     cont = 0
-    while response.status_code != 200 and cont <= 10:
+    while response.status_code != 200 and cont <= 20:
         if DEBUGMODE:
             log(
                 f"{str(response.text.encode('utf8'))} - Tentando novamente!",
@@ -122,6 +122,6 @@ if __name__ == "__main__":
             playsound(script_dir.joinpath("sounds").joinpath("doraemon.mp3"))
 
     if DEBUGMODE:
-        log(res["eventos"][0]["status"], args.logtofile)
+        log(str(res["eventos"][0]["status"]), args.logtofile)
 
     write_last_status(f"{res['eventos'][0]['data']}-{res['eventos'][0]['hora']}")
