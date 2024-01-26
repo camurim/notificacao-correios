@@ -5,6 +5,7 @@ import json
 import os
 import signal
 import sys
+import time
 from datetime import datetime
 from os.path import isfile
 from pathlib import Path
@@ -84,9 +85,19 @@ if __name__ == "__main__":
     console = Console()
     console.clear()
 
-    if response.status_code != 200:
+    cont = 0
+    while response.status_code != 200 and cont <= 3:
         if DEBUGMODE:
-            log(str(response.text.encode("utf8")), args.logtofile)
+            log(
+                f"{str(response.text.encode('utf8'))} - Tentando novamente!",
+                args.logtofile,
+            )
+
+        response = requests.request("GET", url, headers={}, data={})
+        time.sleep(10)
+        cont += 1
+
+    if response.status_code != 200:
         exit(1)
 
     res = json.loads(response.text.encode("utf8"))
@@ -105,7 +116,7 @@ if __name__ == "__main__":
         if notification.notify:
             notification.notify(
                 title="Correios",
-                message=res["eventos"][0]["status"],
+                message=str(res["eventos"][0]["status"]),
                 app_icon=None,
                 timeout=10,
             )
