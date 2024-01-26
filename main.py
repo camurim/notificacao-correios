@@ -117,7 +117,6 @@ if __name__ == "__main__":
             notification.notify(
                 title="Correios",
                 message=str(res["eventos"][0]["status"]),
-                app_icon=None,
                 timeout=10,
             )
             playsound(script_dir.joinpath("sounds").joinpath("doraemon.mp3"))
