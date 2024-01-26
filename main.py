@@ -110,7 +110,8 @@ if __name__ == "__main__":
                 timeout=10,
             )
             playsound(script_dir.joinpath("sounds").joinpath("doraemon.mp3"))
-        if DEBUGMODE:
-            log(res["eventos"][0]["status"], args.logtofile)
+
+    if DEBUGMODE:
+        log(res["eventos"][0]["status"], args.logtofile)
 
     write_last_status(f"{res['eventos'][0]['data']}-{res['eventos'][0]['hora']}")
